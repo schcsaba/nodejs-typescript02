@@ -1,14 +1,9 @@
 version: "3.8"
 services:
-  tsc:
-    build: ./tsc
-    stdin_open: true
-    tty: true
+  api:
+    build: ./api
+    ports:
+      - '8080:8080'
     volumes:
-      - ./:/app
-  npm:
-    build: ./npm
-    stdin_open: true
-    tty: true
-    volumes:
-      - ./:/app
+      - ./api:/app
+      - /app/node_modules
